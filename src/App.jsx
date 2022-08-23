@@ -1,5 +1,5 @@
 
-import './App.css'
+import './App.scss'
 import {
   BrowserRouter,
   Routes,
@@ -10,8 +10,8 @@ import {
 function App() {
 
   return (
-    <div >
-     
+    <div className=''>
+     <h1>Home Page</h1>
     </div>
   )
 }
