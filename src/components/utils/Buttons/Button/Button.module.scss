@@ -1,0 +1,11 @@
+@use '../../../../partials/base';
+
+.button{
+  background-color: base.$primary-color;
+  color: base.$white;
+  font-size: base.$font-size;
+  padding: 1rem 3rem;
+  border-radius: 0.8rem;
+  border: none;
+  font-family: base.$font-roboto;
+}
