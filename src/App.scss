@@ -1,6 +1,27 @@
 @use '/src/partials/base';
 
-h1 {
-  color:base.$primary-color
+
+.container-center{  
+  display: grid;
+  place-items: center;
+}
+.logo{
+  display: block;  
+  margin: 0 auto;
+}
+.logo-subtitle{
+  text-align: right;
+  position: relative;
+  right: -2.1rem;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16.41px;
+  color: #484848;
+  margin-top: 1rem;
 }
 
+.new-record-container{
+  margin: 5rem 5rem;
+  display: flex;
+  justify-content: flex-end;
+}
