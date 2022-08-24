@@ -1,7 +1,10 @@
-$font-base: Raleway, sans-serif;
-$primary-color: #07457a;
+$font-roboto: Roboto, sans-serif;
+$font-inter: Inter, sans-serif;
+$primary-color: #204080;
+$white: #f6fbff;
+$font-size: 18px;
 
 body{
-  font: 100% $font-base;
+  font: 100% $font-roboto;
   color: $primary-color;
 }
