@@ -2,6 +2,7 @@ import "./App.scss";
 
 
 import logo from "./assets/img/tesodev-logo.png";
+import SearchBar from "./components/SearchBar/SearchBar";
 import Button from "./components/utils/Buttons/Button/Button";
 
 function App() {
@@ -17,6 +18,8 @@ function App() {
         </div>
         <div>
         <p className="search-title">Find in records</p>
+        
+        <SearchBar/>
 
         </div>
       </div>
