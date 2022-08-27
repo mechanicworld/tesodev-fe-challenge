@@ -7,7 +7,7 @@ import Button from "./components/utils/Buttons/Button/Button";
 
 function App() {
   return (
-    <div className="">
+    <div className="page-container">
       <div className="new-record-container">
         <Button buttonName={"Add new record"} />
       </div>

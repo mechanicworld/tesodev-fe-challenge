@@ -1,6 +1,8 @@
 @use '/src/partials/base';
 
-
+.page-container{
+  margin: 0 4rem;
+}
 .container-center{  
   display: grid;
   place-items: center;
@@ -21,7 +23,7 @@
 }
 
 .new-record-container{
-  margin: 5rem 5rem;
+  margin: 5rem 0;
   display: flex;
   justify-content: flex-end;
 }
@@ -32,4 +34,5 @@
   font-weight: 900;
   color: #090A0A;
   width: 692px;
+  margin: 0;
 }
