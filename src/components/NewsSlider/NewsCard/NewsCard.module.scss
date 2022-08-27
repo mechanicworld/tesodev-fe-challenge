@@ -1,0 +1,14 @@
+@use '../../../partials/base';
+
+.newsBox{  
+padding: 1rem;
+}
+.newsInfo{
+  font-size: 1rem;
+color: rgba(128, 128, 128, 0.555);
+}
+.newsTitle{
+  font-size: 1.3rem;
+  font-weight: 900;
+  font-family: base.$font-inter;
+}

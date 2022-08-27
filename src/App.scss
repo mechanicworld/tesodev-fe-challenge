@@ -21,13 +21,11 @@
   color: #484848;
   margin-top: 1rem;
 }
-
 .new-record-container{
   margin: 5rem 0;
   display: flex;
   justify-content: flex-end;
 }
-
 .search-title{
   font-family: base.$font-inter;
   font-size: 32px;
@@ -35,4 +33,9 @@
   color: #090A0A;
   width: 692px;
   margin: 0;
+}
+
+.slider-box{
+  width: 1400px;
+  
 }

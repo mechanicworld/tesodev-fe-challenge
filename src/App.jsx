@@ -1,7 +1,7 @@
 import "./App.scss";
 
-
 import logo from "./assets/img/tesodev-logo.png";
+import NewsSlider from "./components/NewsSlider/NewsSlider";
 import SearchBar from "./components/SearchBar/SearchBar";
 import Button from "./components/utils/Buttons/Button/Button";
 
@@ -17,10 +17,12 @@ function App() {
           <div className="logo-subtitle">Search app</div>
         </div>
         <div>
-        <p className="search-title">Find in records</p>
-        
-        <SearchBar/>
-
+          <p className="search-title">Find in records</p>
+          <SearchBar />
+        </div>
+        <div className="slider-box">
+        <p className="search-title">Top News</p>
+        <NewsSlider />
         </div>
       </div>
     </div>

@@ -1,0 +1,53 @@
+@use '../../partials/base';
+
+@mixin button {
+  font-size: 3rem;
+  background-color: rgba(0, 60, 255, 0.185);
+  color:rgb(8, 0, 121);
+  height: 4rem;
+  width: 4rem;
+  text-align: center;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  margin: 0 1rem;
+}
+
+.containerCenter{
+  display: grid;
+  place-items: center;
+}
+
+.container{
+display:flex;
+justify-items: space-between;
+align-items: center;
+width: 1300px;
+margin: 0;
+}
+
+.slideContainer{
+ width: 1068px;
+ overflow-x: hidden;
+}
+.slideCards{
+  display: flex;
+  transform: translateX(100);
+  transition: 0.5s
+}
+
+.leftSlide{
+@include button
+}
+.rightSlide{
+  @include button
+}
+.disabled{
+  @include button;
+  opacity: 50%;
+}
+.leftSlide:hover, .rightSlide:hover{ 
+  background-color: rgba(0, 60, 255, 0.63);
+  color:rgb(253, 253, 253);
+  transition: 0.5s;
+}
