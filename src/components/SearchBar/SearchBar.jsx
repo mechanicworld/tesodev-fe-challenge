@@ -4,10 +4,14 @@ import style from "./SearchBar.module.scss";
 import searchIcon from "../../assets/img/search-icon.svg";
 import { useRecords } from "../../context/";
 import { useNavigate } from "react-router-dom";
+import SearchBox from "./SearchBox/SearchBox";
 
 function SearchBar() {
   const [searchModalOn, setSearchModalOn] = useState(false);
-  const [searchValue, setSearchValue] = useState("");
+  const styleCondition = (categoryId) =>
+  searchCategoryId == categoryId
+    ? style.searchBarListSearchedItem
+    : style.searchBarListItem;
   const {
     columns,
     records,
@@ -17,11 +21,8 @@ function SearchBar() {
     dispatch,
   } = useRecords();
   let navigate = useNavigate();
-  const searchInput = useRef();
-  const styleCondition = (categoryId) =>
-    searchCategoryId == categoryId
-      ? style.searchBarListSearchedItem
-      : style.searchBarListItem;
+
+  
 
   const handleSearchList = useCallback(
     (e) => {
@@ -35,9 +36,9 @@ function SearchBar() {
     [search]
   );
 
-  const handleNavigate = (e) => {
+  const navigateSearchResult = (e) => {
     e.preventDefault();
-    navigate('../search-results');
+    navigate("../search-results");
   };
 
   useEffect(() => {
@@ -62,19 +63,13 @@ function SearchBar() {
   }, [search]);
 
   return (
-    <div className={style.searchBarBox}>
-      <div className={style.container}>
-        <img className={style.searchIcon} src={searchIcon} alt="search-icon" />
-        <input          
-          onChange={handleSearchList}
-          placeholder="Search"
-          value={search}
-          className={style.searchBar}
-          type="text"
-          ref={searchInput}
-        />
-        <Button buttonName={"Search"} />
-      </div>
+    <div className={style.searchBarContainer}>
+      <SearchBox
+        handleSearchList={handleSearchList}
+        navigateSearchResult={navigateSearchResult}
+        search={search}
+      />
+      
       <div>
         {searchModalOn && (
           <div className={style.modalBox}>
@@ -112,10 +107,14 @@ function SearchBar() {
                   ))}
                 </ul>
               ) : (
-                <div>No results Found</div>
+                <div className={style.noResults}>
+                  <div>
+                    No results Found with <b>{search}</b>
+                  </div>
+                </div>
               )}
             </div>
-            <div className={style.showMore} onClick={handleNavigate}>
+            <div className={style.showMore} onClick={navigateSearchResult}>
               Show more...
             </div>
           </div>

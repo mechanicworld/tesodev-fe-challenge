@@ -1,7 +1,7 @@
 @use '../../partials/base';
 
 
-.searchBarBox{
+.searchBarContainer{
 margin-bottom: 5rem;
 }
 .container{
@@ -16,10 +16,13 @@ margin-bottom: 5rem;
 .floatR{
   float: right;
 }
-.containerFlex{
-
+.noResults{
+  display: grid;
+  place-items: center;
+  margin-top: 5rem;
+  font-size: 2rem;
 }
-.searchBar{  
+.searchArea{  
   border: 2px solid base.$primary-color;
   border-radius:8px;
   width: 648px;
@@ -30,7 +33,7 @@ margin-bottom: 5rem;
   padding-left: 3.5rem;
   
 }
-.searchBar:focus{
+.searchArea:focus{
   outline: none;
   border: 3px solid  base.$primary-color;
   
