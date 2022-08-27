@@ -62,11 +62,10 @@ function SearchBar() {
   }, [search]);
 
   return (
-    <div>
+    <div className={style.searchBarBox}>
       <div className={style.container}>
         <img className={style.searchIcon} src={searchIcon} alt="search-icon" />
-        <input
-          onFocus={(e) => console.log(search)}
+        <input          
           onChange={handleSearchList}
           placeholder="Search"
           value={search}
