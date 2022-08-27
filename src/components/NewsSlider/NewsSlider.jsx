@@ -7,12 +7,6 @@ function NewsSlider() {
   const [transformSlide, setTransformSLide] = useState(0);
   const cards = useRef(0);
 
-  // useEffect(() => {
-  //   console.log(cards);
-  //   // cards.current.setAttribute('clientWidth',100)
-  //   console.log(cards.current.firstChild.clientWidth)
-  //   setCardWidth(cards.current.firstChild.clientWidth);
-  // }, [cardWidth]);
 
   const handleLeftSlide = (e) =>{
     e.preventDefault()
