@@ -42,20 +42,21 @@ function SearchBar() {
   };
 
   useEffect(() => {
+    dispatch({
+      type: "UPDATE_FILTERED_RECORD",
+      value: records.filter((record, index) => {
+        if (
+          record[searchCategoryId]
+            .toLowerCase()
+            .includes(search.toLowerCase())
+        ) {
+          return record;
+        }
+      }),
+    });
     if (search.length >= 3) {
       setSearchModalOn(true);
-      dispatch({
-        type: "UPDATE_FILTERED_RECORD",
-        value: records.filter((record, index) => {
-          if (
-            record[searchCategoryId]
-              .toLowerCase()
-              .includes(search.toLowerCase())
-          ) {
-            return record;
-          }
-        }),
-      });
+      
     } else {
       setSearchModalOn(false);
     }
@@ -75,9 +76,10 @@ function SearchBar() {
           <div className={style.modalBox}>
             <div>
               {filteredRecords.length > 0 ? (
-                <ul>
+                <ul className={style.listBox}>
                   {filteredRecords.slice(0, 3).map((res, index) => (
-                    <li>
+
+                    <li className={style.listItem}>
                       <div>
                         <div>
                           <span className={styleCondition(0)}>{res[0]}</span>
