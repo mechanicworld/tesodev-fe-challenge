@@ -15,5 +15,10 @@ export default function recordReducer(state, action){
         ...state,
         filteredRecords:action.value
       }
+      case 'UPDATE_ORDER':
+      return{
+        ...state,
+        orderById:action.value
+      }
   }
 }

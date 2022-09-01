@@ -9,7 +9,9 @@ export const RecordProvider = ({children}) => {
     columns:mockData.cols,
     search:'',
     searchCategoryId:0,
-    filteredRecords:[]
+    filteredRecords: mockData.data,
+    orderByList:mockData.orderBy,
+    orderById:0
 
   });
 
