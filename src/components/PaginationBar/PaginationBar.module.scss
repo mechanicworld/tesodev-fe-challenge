@@ -1,0 +1,39 @@
+@use '../../partials/base';
+
+
+@mixin button($height: 14px, $color:#484848, $padding:auto){
+  border:1.5px solid $color;
+  border-radius: 4px;
+  height: 24px;
+  font-family: base.$font-roboto;
+  font-size: 14px;  
+  font-weight: 700;
+  color :$color;
+  margin: 0.2rem;
+  padding:$padding;  
+  &:active{
+    opacity: 0.8;
+  }
+  &:disabled{
+    cursor: not-allowed;
+    opacity: 1;
+  }
+}
+
+.prevButton{
+  @include button($padding:0rem 1.6rem)
+}
+.nextButton{
+  @include button($padding: 0rem 1.6rem)
+
+}
+.pageNumbers{
+  @include button
+}
+.currentPage{
+  @include button($color:white);
+  background-color:base.$primary-color
+}
+.paginationBarBox{
+
+}
