@@ -1,6 +1,6 @@
 const  sortArrayByOrder = (orderId, array, orderType) => {
   let sortedArray = [];
-  console.log(array.sort())
+  
   sortedArray = array.sort((a, b) => {
     let first = a[orderId];
     let second = b[orderId];
@@ -8,7 +8,7 @@ const  sortArrayByOrder = (orderId, array, orderType) => {
       
       first = Date.parse(DateConverter(first))
       second = Date.parse(DateConverter(second))
-      console.log(first)
+      
     }
     switch (orderType) {
       case "DESC":
