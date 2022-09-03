@@ -1,0 +1,24 @@
+@use '../../partials/base';
+
+.alertCard{
+  position: relative;
+  bottom: 0rem;
+  background-color: #C4C4C4;
+  border-radius: 0.5rem;
+  height: 7rem;
+  width: 20rem;
+  margin-right: 2rem;
+  h5{
+    position: relative;
+    left: 1rem;
+    margin-bottom: 0;
+  }
+  p{
+    font-size: 0.9rem;
+    padding: 0.2rem;
+    margin-left: 0.8rem;
+  }
+}
+.displayAlert{
+  display: none;
+}
