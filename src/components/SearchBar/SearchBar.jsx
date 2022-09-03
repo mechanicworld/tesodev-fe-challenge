@@ -78,8 +78,7 @@ function SearchBar() {
               {filteredRecords.length > 0 ? (
                 <ul className={style.listBox}>
                   {filteredRecords.slice(0, 3).map((res, index) => (
-
-                    <li className={style.listItem}>
+                    <li key={index} className={style.listItem}>
                       <div>
                         <div>
                           <span className={styleCondition(0)}>{res[0]}</span>

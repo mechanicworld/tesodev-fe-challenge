@@ -54,6 +54,13 @@ margin-bottom: 5rem;
   display: grid;
   grid-template-rows: [row1] 95% [row2] 5%;
   padding: 0.5rem 1rem 1rem 1rem;
+  animation-name: modelBoxOpen;
+  animation-duration: 1s;
+}
+@keyframes modelBoxOpen{
+  0%{opacity:0;transform: rotateY(-90deg);}
+  50%{transform: rotateY(-20deg);}
+  100%{opactiy:1;transform: rotateY(0deg);}
 }
 
 .listBox{
