@@ -11,7 +11,9 @@ export const RecordProvider = ({children}) => {
     searchCategoryId:0,
     filteredRecords: mockData.data,
     orderByList:mockData.orderBy,
-    orderById:0
+    orderById:0,
+    currentPage:0,
+    pageList:[...Array(Math.ceil(mockData.data.length / 5)).keys()]
 
   });
 
