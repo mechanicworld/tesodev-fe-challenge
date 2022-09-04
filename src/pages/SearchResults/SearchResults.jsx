@@ -56,9 +56,13 @@ function SearchResults() {
     navigate("../search-results");
   };
   const navigateAddRecords = (e) => {
-    e.preventDefault()
-    navigate('../add-records')
-  }
+    e.preventDefault();
+    navigate("../add-records");
+  };
+  const navigateHome = (e) => {
+    e.preventDefault();
+    navigate("../");
+  };
 
   useEffect(() => {
     if (records != undefined) {
@@ -89,30 +93,11 @@ function SearchResults() {
       ? style.searchBarListSearchedItem
       : style.searchBarListItem;
 
-  const handleClick = (e) => {
-    e.preventDefault();
-// Recursive Todo for children item
-  //   const childrenList = (element, list) => {
-  //     console.log(list);
-
-  //     if (element.childElementCount > 0) {
-  //       let listTemp = [];
-  //       [...element.children].map((each) => {
-  //         listTemp.push(each);
-  //         console.log(listTemp, list);
-  //         childrenList(each, list.concat(listTemp));
-  //       });
-  //       return listTemp.concat(list);
-  //     } else {
-  //       return list.concat(element);
-  //     }
-  //   };
-  //   console.log(childrenList(orderBox.current, []));
-  };
+ 
   return (
-    <div onClick={handleClick} className={style.page}>
+    <div  className={style.page}>
       <div className={style.topContainer}>
-        <img src={image} alt="tesodev" />
+        <img style={{cursor:"pointer"}} onClick={navigateHome} src={image} alt="tesodev"  />
         <SearchBox
           handleSearchList={handleSearchList}
           navigateSearchResult={navigateSearchResult}
@@ -124,44 +109,60 @@ function SearchResults() {
         <div className={style.resultListContainer}>
           <div className={style.resultList}>
             <ul className={style.listBox}>
-              {filteredRecords
-                ?.slice(currentPage * 5, (currentPage + 1) * 5)
-                .map((res, index) => {
-                  return (
-                    <>
-                      <li key={index} className={style.listItem}>
-                        <div className={style.listItemInsideBox}>
-                          <div className={style.listItemFirstLine}>
-                            <span className={styleCondition(0)}>{res[0]}</span>
-                            <span> - </span>
-                            <span className={styleCondition(1)}>{res[1]}</span>
-                            <span
-                              className={`${styleCondition(3)} ${style.floatR}`}
-                            >
-                              {res[3]}
-                            </span>
-                          </div>
-                          <div>
-                            <div
-                              className={`${styleCondition(4)} ${style.floatL}`}
-                            >
-                              {res[2]}
+              {filteredRecords?.length > 0 ? (
+                filteredRecords
+                  ?.slice(currentPage * 5, (currentPage + 1) * 5)
+                  .map((res, index) => {
+                    return (
+                      <div key={index}>
+                        <li className={style.listItem}>
+                          <div className={style.listItemInsideBox}>
+                            <div className={style.listItemFirstLine}>
+                              <span className={styleCondition(0)}>
+                                {res[0]}
+                              </span>
+                              <span> - </span>
+                              <span className={styleCondition(1)}>
+                                {res[1]}
+                              </span>
+                              <span
+                                className={`${styleCondition(3)} ${
+                                  style.floatR
+                                }`}
+                              >
+                                {res[3]}
+                              </span>
                             </div>
-                            <div
-                              className={`${styleCondition(5)} ${style.floatR}`}
-                            >
-                              {res[4]} <span>-</span> {res[5]}
+                            <div>
+                              <div
+                                className={`${styleCondition(4)} ${
+                                  style.floatL
+                                }`}
+                              >
+                                {res[2]}
+                              </div>
+                              <div
+                                className={`${styleCondition(5)} ${
+                                  style.floatR
+                                }`}
+                              >
+                                {res[4]} <span>-</span> {res[5]}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      </li>
-                      <div className={style.seperatorLine}></div>
-                    </>
-                  );
-                })}
+                        </li>
+                        <div className={style.seperatorLine}></div>
+                      </div>
+                    );
+                  })
+              ) : (
+                <div>
+                  <p className={style.notFound}>No records found with -{search}-</p>
+                </div>
+              )}
             </ul>
           </div>
-          {pageList.length > 0 && (
+          {pageList?.length > 0 && filteredRecords?.length > 3 && (
             <div className={style.paginationBox}>
               <PaginationBar />
             </div>
