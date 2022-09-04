@@ -4,7 +4,7 @@ import style from "./NewsSlider.module.scss";
 
 function NewsSlider() {
   const [cardWidth, setCardWidth] = useState(356);
-  const [transformSlide, setTransformSLide] = useState(0);
+  const [transformSlide, setTransformSlide] = useState(0);
   const cards = useRef(0);
 
 
@@ -12,7 +12,7 @@ function NewsSlider() {
     e.preventDefault()
     if(transformSlide !== 0 ){
       cards.current.style.transform = `translateX(-${cardWidth * (transformSlide - 1)}px)`
-      setTransformSLide(x => x - 1)
+      setTransformSlide(x => x - 1)
     }
 
   } 
@@ -20,10 +20,10 @@ function NewsSlider() {
     e.preventDefault()
     if(transformSlide < mockNews.length - 3 ){
       cards.current.style.transform = `translateX(-${cardWidth * (transformSlide + 1)}px)`
-      setTransformSLide(x => x + 1)
+      setTransformSlide(x => x + 1)
     }else{
       cards.current.style.transform = `translateX(-${cardWidth * (0)}px)`
-      setTransformSLide(x => x = 0)
+      setTransformSlide(x => x = 0)
     }
   } 
 
