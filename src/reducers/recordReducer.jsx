@@ -1,10 +1,15 @@
 export default function recordReducer(state, action) {
   switch (action.type) {
     case "ADD_RECORD":
-      
+      const localData = JSON.parse(localStorage.getItem("newRecords"));
+      const updatedData = {
+        ...localData,
+        records: [...localData.records, action.value],
+      };
+      localStorage.setItem("newRecords", JSON.stringify(updatedData));
       return {
         ...state,
-        records: action.value,
+        records: [...state.records, action.value],
       };
     case "SET_SEARCH":
       return {
@@ -27,13 +32,12 @@ export default function recordReducer(state, action) {
         pageList: action.value,
       };
 
-      case "SET_CURRENT_PAGE":
-        return {
-          ...state,
-          currentPage: action.value,
-        };
+    case "SET_CURRENT_PAGE":
+      return {
+        ...state,
+        currentPage: action.value,
+      };
     case "INCREASE_CURRENT_PAGE":
-      
       return {
         ...state,
         currentPage: state.currentPage + 1,
@@ -44,6 +48,6 @@ export default function recordReducer(state, action) {
         currentPage: state.currentPage - 1,
       };
     default:
-    console.log("Action not recognized")
+      break;
   }
 }
