@@ -15,9 +15,7 @@ function PaginationBar() {
     pageList,
     dispatch,
   } = useRecords();
-  // const [pageList, setList] = useState([
-  //   ...Array(Math.ceil(filteredRecords.length / 5)).keys(),
-  // ]);
+  
 
   const pageIncrease = (e) => {
     e.preventDefault();
@@ -61,14 +59,7 @@ function PaginationBar() {
                 .concat(["..."], pageList.slice(-3))
                 .map((button, index) => {
                   return typeof button == "string" ? (
-                    <button
-                      key={index}
-                      className={`${style.pageNumbers} ${
-                        button == currentPage && style.currentPage
-                      }`}
-                    >
-                      {button}
-                    </button>
+                    <span className={style.collapsedSign}>. . .</span>
                   ) : (
                     <button
                       onClick={(e) => setCurrentPage(e, button)}
@@ -87,14 +78,7 @@ function PaginationBar() {
                 .concat(["..."], pageList.slice(-3))
                 .map((button, index) => {
                   return typeof button == "string" ? (
-                    <button
-                      key={index}
-                      className={`${style.pageNumbers} ${
-                        button == currentPage && style.currentPage
-                      }`}
-                    >
-                      {button}
-                    </button>
+                    <span className={style.collapsedSign}>. . .</span>
                   ) : (
                     <button
                       onClick={(e) => setCurrentPage(e, button)}

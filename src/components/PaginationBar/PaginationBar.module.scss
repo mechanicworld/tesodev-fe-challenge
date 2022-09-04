@@ -30,6 +30,16 @@
 .pageNumbers{
   @include button
 }
+.collapsedSign{
+  height: 24px;
+  font-family: base.$font-roboto;
+  font-size: 20px;  
+  font-weight: 700;
+  color :#484848;
+  margin: 0.2rem;
+  padding:auto; 
+  padding-bottom: 0; 
+}
 .currentPage{
   @include button($color:white);
   background-color:base.$primary-color
