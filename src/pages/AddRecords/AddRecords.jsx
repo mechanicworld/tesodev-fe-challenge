@@ -6,10 +6,11 @@ import arrow from "../../assets/img/back-arrow.png";
 import Button from "../../components/utils/Buttons/Button/Button";
 import AlertBox from "../../components/AlertBox/AlertBox";
 import { useRecords } from "../../context";
+
+
 function AddRecords() {
   const { records, dispatch } = useRecords();
   let navigate = useNavigate();
-  console.log(records);
 
   const [formInputs, setFormInputs] = useState({
     nameSurname: "",
@@ -31,6 +32,10 @@ function AddRecords() {
     e.preventDefault();
     navigate("../search-results");
   };
+  const navigateHome = (e) => {
+    e.preventDefault();
+    navigate("../");
+  };
   const submitForm = (e) => {
     e.preventDefault();
     if (handleErrors()) {
@@ -40,7 +45,7 @@ function AddRecords() {
       const timeElapsed = Date.now();
       const today = new Date(timeElapsed);
       dispatch({
-        type: "ADD_RECORDS",
+        type: "ADD_RECORD",
         value: [
           formInputs.nameSurname,
           `${formInputs.nameSurname} Corporation`,
@@ -50,16 +55,31 @@ function AddRecords() {
           formInputs.city,
         ],
       });
+      navigate("../search-results")
     }
-    console.log(e);
   };
   useEffect(() => {
     setDisable(handleDisable());
     setErrorState({
       ...errorState,
-      nameSurname: /^[a-zA-Z]{2,60}$/.test(formInputs.nameSurname),
-      country: /^[a-zA-Z]{2,40}$/.test(formInputs.country),
-      city: /^[a-zA-Z]{2,40}$/.test(formInputs.city),
+      nameSurname:
+        /^[a-zA-Z]{2,60}$/.test(formInputs.nameSurname.replaceAll(" ", "")) &&
+        formInputs.nameSurname
+          .trim()
+          .split(" ")
+          .every((e) => e != "") && formInputs.nameSurname.trim().split(" ").length > 1,
+      country:
+        /^[a-zA-Z]{2,40}$/.test(formInputs.country.replaceAll(" ", "")) &&
+        formInputs.country
+          .trim()
+          .split(" ")
+          .every((e) => e != ""),
+      city:
+        /^[a-zA-Z]{2,40}$/.test(formInputs.city.replaceAll(" ", "")) &&
+        formInputs.city
+          .trim()
+          .split(" ")
+          .every((e) => e != ""),
       email: /^[\w-\.]{1,64}@([\w-]+\.)+[\w-]{2,4}$/.test(formInputs.email),
     });
     setSendStatus(true);
@@ -74,7 +94,12 @@ function AddRecords() {
   return (
     <div className={style.page}>
       <div className={style.topContainer}>
-        <img src={image} alt="tesodev" />
+        <img
+          style={{ cursor: "pointer" }}
+          onClick={navigateHome}
+          src={image}
+          alt="tesodev"
+        />
         <div onClick={navigateSearchResult} className={style.returnLink}>
           <img src={arrow} alt="arrow-left" />
           <div className={style.returnText}>Return to List Page</div>
