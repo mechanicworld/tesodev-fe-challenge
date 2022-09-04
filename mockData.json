@@ -1,4 +1,10 @@
 {
+	"orderBy":[
+		"Name ascending",
+		"Name descending",
+		"Year ascending",
+		"Year descending"
+	],
 	"cols": [
 		"Name Surname",
 		"Company",
@@ -377,7 +383,7 @@
 			"Ururi"
 		],
 		[
-			"Sierra Brown",
+			"Philip Brown",
 			"Suspendisse Tristique Neque Inc.",
 			"Fusce.mi.lorem@vitae.net",
 			"21/04/2021",
@@ -385,7 +391,7 @@
 			"Carluke"
 		],
 		[
-			"Melvin Mcgowan",
+			"Philip Mcgowan",
 			"Phasellus At Augue Incorporated",
 			"magnis.dis.parturient@sedpede.net",
 			"24/06/2021",
