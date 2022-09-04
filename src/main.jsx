@@ -9,7 +9,7 @@ import AddRecords from "./pages/AddRecords/AddRecords";
 import { RecordProvider } from "./context";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
+ 
     <RecordProvider>
       <BrowserRouter>
         <Routes>
@@ -19,5 +19,5 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         </Routes>
       </BrowserRouter>
     </RecordProvider>
-  </React.StrictMode>
+ 
 );
