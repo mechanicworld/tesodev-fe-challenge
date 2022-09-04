@@ -9,9 +9,9 @@ import SearchBox from "./SearchBox/SearchBox";
 function SearchBar() {
   const [searchModalOn, setSearchModalOn] = useState(false);
   const styleCondition = (categoryId) =>
-  searchCategoryId == categoryId
-    ? style.searchBarListSearchedItem
-    : style.searchBarListItem;
+    searchCategoryId == categoryId
+      ? style.searchBarListSearchedItem
+      : style.searchBarListItem;
   const {
     columns,
     records,
@@ -22,12 +22,9 @@ function SearchBar() {
   } = useRecords();
   let navigate = useNavigate();
 
-  
-
   const handleSearchList = useCallback(
     (e) => {
-      e.preventDefault();
-      // setSearchValue(e.target.value);
+      e.preventDefault();     
       dispatch({
         type: "SET_SEARCH",
         value: e.target.value,
@@ -46,9 +43,7 @@ function SearchBar() {
       type: "UPDATE_FILTERED_RECORD",
       value: records.filter((record, index) => {
         if (
-          record[searchCategoryId]
-            .toLowerCase()
-            .includes(search.toLowerCase())
+          record[searchCategoryId].toLowerCase().includes(search.toLowerCase())
         ) {
           return record;
         }
@@ -56,7 +51,6 @@ function SearchBar() {
     });
     if (search.length >= 3) {
       setSearchModalOn(true);
-      
     } else {
       setSearchModalOn(false);
     }
@@ -70,14 +64,14 @@ function SearchBar() {
         navigateSearchResult={navigateSearchResult}
         search={search}
       />
-      
+
       <div>
         {searchModalOn && (
           <div className={style.modalBox}>
             <div>
-              {filteredRecords.length > 0 ? (
+              {filteredRecords?.length > 0 ? (
                 <ul className={style.listBox}>
-                  {filteredRecords.slice(0, 3).map((res, index) => (
+                  {filteredRecords?.slice(0, 3).map((res, index) => (
                     <li key={index} className={style.listItem}>
                       <div>
                         <div>
@@ -115,9 +109,11 @@ function SearchBar() {
                 </div>
               )}
             </div>
-            <div className={style.showMore} onClick={navigateSearchResult}>
-              Show more...
-            </div>
+            {filteredRecords.length != 0 && (
+              <div className={style.showMore} onClick={navigateSearchResult}>
+                Show more...
+              </div>
+            )}
           </div>
         )}
       </div>
