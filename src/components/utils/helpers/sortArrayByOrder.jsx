@@ -1,14 +1,12 @@
 const  sortArrayByOrder = (orderId, array, orderType) => {
   let sortedArray = [];
-  
+
   sortedArray = array.sort((a, b) => {
-    let first = a[orderId];
-    let second = b[orderId];
-    if(orderId == 3 ){
-      
+    let first = a[orderId].toLowerCase();
+    let second = b[orderId].toLowerCase();
+    if(orderId == 3 ){      
       first = Date.parse(DateConverter(first))
-      second = Date.parse(DateConverter(second))
-      
+      second = Date.parse(DateConverter(second))      
     }
     switch (orderType) {
       case "DESC":
